@@ -81,3 +81,25 @@ let mostrar_ocultar = (id) => {
         document.getElementsByName("unDiv")[0].style.display = 'none';
     }
 }
+
+/**
+ * Suma valores
+ * @method sumar
+ * @param {string} id - Id del elemento input radio en html
+ */
+
+let sumar = () => {
+    let re, s1, s2;
+    if (isNaN(s1)) {
+        alert("El valor ingresado es incorrecto");
+        s1 = "";
+    }
+    if (isNaN(s2)) {
+        alert("El valor ingresado es incorrecto");
+        s2 = "";
+    }
+    s1 = Number(document.operacionesMat.sum_num1.value)
+    s2 = Number(document.operacionesMat.sum_num2.value);
+    re = s1 + s2;
+    document.operacionesMat.sum_total.value = re;
+}
