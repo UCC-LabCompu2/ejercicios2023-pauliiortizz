@@ -50,16 +50,19 @@ convertir_U = (id, valor) => {
 
 convertir_GR = (id) => {
     let gr, rad;
-    if (isNaN(valor)) {
-        alert("El valor ingresado es incorrecto");
-        gr = "";
-        rad = "";
-    }
     if (id == "grados") {
         gr = document.getElementById("grados").value;
+        if (isNaN(gr)) {
+            alert("El valor ingresado es incorrecto");
+            gr = "";
+        }
         document.getElementById("radianes").value = (gr * Math.PI) / 180;
     } else if (id == "radianes") {
         rad = document.getElementById("radianes").value;
+        if (isNaN(rad)) {
+            alert("El valor ingresado es incorrecto");
+            rad = "";
+        }
         document.getElementById("grados").value = (rad * 180) / Math.PI;
     }
 }
