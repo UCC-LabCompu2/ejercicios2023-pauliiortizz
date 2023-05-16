@@ -66,3 +66,18 @@ convertir_GR = (id) => {
         document.getElementById("grados").value = (rad * 180) / Math.PI;
     }
 }
+
+
+/**
+ * Convierte unidades entre grados y radianes
+ * @method convertir_GR
+ * @param {string} id - Id del elemento input e html
+ */
+
+let mostrar_ocultar = (id) => {
+    if (id === "mostrarDiv") {
+        document.getElementsByName("unDiv")[0].style.display = 'block';
+    } else {
+        document.getElementsByName("unDiv")[0].style.display = 'none';
+    }
+}
