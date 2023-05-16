@@ -33,3 +33,13 @@ function convertir_U(id, valor){
         document.Unidades.unid_yarda.value=valor*0.333333;
     }
 }
+
+function convertir_GR(id){
+    if (id=="grados"){
+        let gr =document.getElementById("grados").value;
+        document.getElementById("radianes").value=(gr*Math.PI)/180;
+    } else if(id=="radianes"){
+        let rad =document.getElementById("rad").value;
+        document.getElementById("radianes").value= (rad*180)/Math.PI;
+    }
+}
