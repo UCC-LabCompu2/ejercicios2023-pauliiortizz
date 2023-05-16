@@ -69,9 +69,9 @@ convertir_GR = (id) => {
 
 
 /**
- * Convierte unidades entre grados y radianes
- * @method convertir_GR
- * @param {string} id - Id del elemento input e html
+ * Oculta o Muestra un div en la parte inferior
+ * @method mostrar_ocultar
+ * @param {string} id - Id del elemento input radio en html
  */
 
 let mostrar_ocultar = (id) => {
