@@ -5,9 +5,7 @@
  * @param {number} valor - Contiene el valor del input que ingreso el usuario
  */
 
-
-
-function convertir_U(id, valor) {
+convertir_U = (id, valor) => {
     let met, pul, pie, yar;
 
     if (isNaN(valor)) {
@@ -44,12 +42,24 @@ function convertir_U(id, valor) {
     document.Unidades.unid_metro.value = met;
 }
 
-function convertir_GR(id) {
+/**
+ * Convierte unidades entre grados y radianes
+ * @method convertir_GR
+ * @param {string} id - Id del elemento input e html
+ */
+
+convertir_GR = (id) => {
+    let gr, rad;
+    if (isNaN(valor)) {
+        alert("El valor ingresado es incorrecto");
+        gr = "";
+        rad = "";
+    }
     if (id == "grados") {
-        let gr = document.getElementById("grados").value;
+        gr = document.getElementById("grados").value;
         document.getElementById("radianes").value = (gr * Math.PI) / 180;
     } else if (id == "radianes") {
-        let rad = document.getElementById("radianes").value;
+        rad = document.getElementById("radianes").value;
         document.getElementById("grados").value = (rad * 180) / Math.PI;
     }
 }
