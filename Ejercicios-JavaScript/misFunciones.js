@@ -90,6 +90,8 @@ let mostrar_ocultar = (id) => {
 
 let sumar = () => {
     let re, s1, s2;
+    s1 = Number(document.operacionesMat.sum_num1.value)
+    s2 = Number(document.operacionesMat.sum_num2.value);
     if (isNaN(s1)) {
         alert("El valor ingresado es incorrecto");
         s1 = "";
@@ -98,8 +100,6 @@ let sumar = () => {
         alert("El valor ingresado es incorrecto");
         s2 = "";
     }
-    s1 = Number(document.operacionesMat.sum_num1.value)
-    s2 = Number(document.operacionesMat.sum_num2.value);
     re = s1 + s2;
     document.operacionesMat.sum_total.value = re;
 }
