@@ -39,7 +39,7 @@ function convertir_GR(id){
         let gr =document.getElementById("grados").value;
         document.getElementById("radianes").value=(gr*Math.PI)/180;
     } else if(id=="radianes"){
-        let rad =document.getElementById("rad").value;
-        document.getElementById("radianes").value= (rad*180)/Math.PI;
+        let rad =document.getElementById("radianes").value;
+        document.getElementById("grados").value=(rad*180)/Math.PI;
     }
 }
