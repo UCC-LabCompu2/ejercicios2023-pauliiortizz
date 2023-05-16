@@ -7,39 +7,49 @@
 
 
 
-function convertir_U(id, valor){
-    if (isNaN(valor)){
-        alert("El valor ingresado es incorrecto");
-        document.Unidades.unid_metro.value="";
-        document.Unidades.unid_pulgada.value="";
-        document.Unidades.unid_pie.value="";
-        document.Unidades.unid_yarda.value="";
-    }else if (id=="metro"){
-        document.Unidades.unid_pulgada.value=valor*39.3701;
-        document.Unidades.unid_pie.value=valor*3.28084;
-        document.Unidades.unid_yarda.value=valor*1.09361;
-    }else if(id=="pulgada"){
-        document.Unidades.unid_metro.value=valor*0.0254;
-        document.Unidades.unid_pie.value=valor*0.0833333;
-        document.Unidades.unid_yarda.value=valor*0.0277778;
-    }else if(id=="yarda"){
-        document.Unidades.unid_pulgada.value=valor*36;
-        document.Unidades.unid_pie.value=valor*3;
-        document.Unidades.unid_metro.value=valor*0.9144;
+function convertir_U(id, valor) {
+    let met, pul, pie, yar;
 
-    }else if(id=="pie"){
-        document.Unidades.unid_pulgada.value=valor*12;
-        document.Unidades.unid_metro.value=valor*0.3048;
-        document.Unidades.unid_yarda.value=valor*0.333333;
+    if (isNaN(valor)) {
+        alert("El valor ingresado es incorrecto");
+        met = "";
+        pul = "";
+        yar = "";
+        pie = "";
+    } else if (id === "metro") {
+        met = valor;
+        pul = valor * 39.3701;
+        pie = valor * 3.28084;
+        yar = valor * 1.09361;
+    } else if (id === "pulgada") {
+        pul = valor;
+        met = valor * 0.0254;
+        pie = valor * 0.0833333;
+        yar = valor * 0.0277778;
+    } else if (id === "yarda") {
+        yar = valor;
+        pul = valor * 36;
+        pie = valor * 3;
+        met = valor * 0.9144;
+
+    } else if (id === "pie") {
+        pie = valor;
+        pul = valor * 12;
+        met = valor * 0.3048;
+        yar = valor * 0.333333;
     }
+    document.Unidades.unid_pulgada.value = pul;
+    document.Unidades.unid_pie.value = pie;
+    document.Unidades.unid_yarda.value = yar;
+    document.Unidades.unid_metro.value = met;
 }
 
-function convertir_GR(id){
-    if (id=="grados"){
-        let gr =document.getElementById("grados").value;
-        document.getElementById("radianes").value=(gr*Math.PI)/180;
-    } else if(id=="radianes"){
-        let rad =document.getElementById("radianes").value;
-        document.getElementById("grados").value=(rad*180)/Math.PI;
+function convertir_GR(id) {
+    if (id == "grados") {
+        let gr = document.getElementById("grados").value;
+        document.getElementById("radianes").value = (gr * Math.PI) / 180;
+    } else if (id == "radianes") {
+        let rad = document.getElementById("radianes").value;
+        document.getElementById("grados").value = (rad * 180) / Math.PI;
     }
 }
