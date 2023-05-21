@@ -103,3 +103,72 @@ let sumar = () => {
     re = s1 + s2;
     document.operacionesMat.sum_total.value = re;
 }
+
+/**
+ * Resta valores
+ * @method restar
+ * @param {string} id - Id del elemento input radio en html
+ */
+
+
+let restar = ()=>{
+    let re, s1, s2;
+    s1 = Number(document.operacionesMat.res_num1.value);
+    s2 = Number(document.operacionesMat.res_num2.value);
+    if (isNaN(s1)) {
+        alert("El valor ingresado es incorrecto");
+        s1 = "";
+    }
+    if (isNaN(s2)) {
+        alert("El valor ingresado es incorrecto");
+        s2 = "";
+    }
+    re = s1 - s2;
+    document.operacionesMat.res_total.value = re;
+}
+
+/**
+ * Multiplica valores
+ * @method multiplicar
+ * @param {string} id - Id del elemento input radio en html
+ */
+
+
+let multiplicar = ()=>{
+    let re, s1, s2;
+    s1 = Number(document.operacionesMat.mul_num1.value);
+    s2 = Number(document.operacionesMat.mul_num2.value);
+    if (isNaN(s1)) {
+        alert("El valor ingresado es incorrecto");
+        s1 = "";
+    }
+    if (isNaN(s2)) {
+        alert("El valor ingresado es incorrecto");
+        s2 = "";
+    }
+    re = s1 * s2;
+    document.operacionesMat.mul_total.value = re;
+}
+
+/**
+ * Divide valores
+ * @method dividir
+ * @param {string} id - Id del elemento input radio en html
+ */
+
+
+let dividir = ()=>{
+    let re, s1, s2;
+    s1 = Number(document.operacionesMat.div_num1.value);
+    s2 = Number(document.operacionesMat.div_num2.value);
+    if (isNaN(s1)) {
+        alert("El valor ingresado es incorrecto");
+        s1 = "";
+    }
+    if (isNaN(s2)) {
+        alert("El valor ingresado es incorrecto");
+        s2 = "";
+    }
+    re = s1 / s2;
+    document.operacionesMat.div_total.value = re;
+}
