@@ -39,10 +39,10 @@ convertir_U = (id, valor) => {
         met = valor * 0.3048;
         yar = valor * 0.333333;
     }
-    document.Unidades.unid_pulgada.value = Math.round(pul*100)/100;
-    document.Unidades.unid_pie.value = Math.round(pie*100)/100;
-    document.Unidades.unid_yarda.value = Number(pie).toFixed(2);
-    document.Unidades.unid_metro.value = Number(yar).toFixed(2);
+    document.Unidades.unid_pulgada.value = Math.round(pul * 100) / 100;
+    document.Unidades.unid_pie.value = Math.round(pie * 100) / 100;
+    document.Unidades.unid_yarda.value = Number(yar).toFixed(2);
+    document.Unidades.unid_metro.value = Number(met).toFixed(2);
 }
 
 /**
@@ -53,14 +53,14 @@ convertir_U = (id, valor) => {
 
 convertir_GR = (id) => {
     let gr, rad;
-    if (id == "grados") {
+    if (id === "grados") {
         gr = document.getElementById("grados").value;
         if (isNaN(gr)) {
             alert("El valor ingresado es incorrecto");
             gr = "";
         }
         document.getElementById("radianes").value = (gr * Math.PI) / 180;
-    } else if (id == "radianes") {
+    } else if (id === "radianes") {
         rad = document.getElementById("radianes").value;
         if (isNaN(rad)) {
             alert("El valor ingresado es incorrecto");
@@ -174,4 +174,30 @@ let dividir = () => {
     }
     re = s1 / s2;
     document.operacionesMat.div_total.value = re;
+}
+
+let verLetra = (id, value) => {
+    if (isNaN(value)) {
+        document.getElementById(id).value = "";
+    }
+}
+
+let generarUrl = () => {
+    const dist = document.getElementById("distancia").value;
+    const uni = document.getElementsByName("unidades")[0].value;
+
+    const urlCompl = `segundaWeb.html#${dist}#${uni}`;
+    window.open(urlCompl);
+}
+
+let cargarvalor = () => {
+    let urlCompleta = window.location.href;
+    console.log(urlCompleta);
+
+    urlCompleta = urlCompleta.split("#");
+
+    const distancia = urlCompleta[1];
+    const unidad = urlCompleta[2];
+
+    document.getElementById("dist").value = `${distancia} ${unidad}`;
 }
