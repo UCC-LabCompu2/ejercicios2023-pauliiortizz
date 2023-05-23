@@ -201,3 +201,22 @@ let cargarvalor = () => {
 
     document.getElementById("dist").value = `${distancia} ${unidad}`;
 }
+
+
+let guardarLS = () => {
+    const dist = document.getElementById("distancia").value;
+    const uni = document.getElementsByName("unidades")[0].value;
+
+    localStorage.setItem("distanciaLS", dist);
+    localStorage.setItem("unidadLS", uni);
+
+    window.open(web2.html);
+}
+
+let cargarLS = () => {
+    const dist =  localStorage.getItem("distanciaLS");
+    const uni =  localStorage.getItem("unidadLS");
+    console.log(distancia);
+    console.log(unidad);
+    document.getElementById("dist").value=`${distancia} ${unidad}`;
+}
