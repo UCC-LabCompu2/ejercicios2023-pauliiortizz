@@ -8,6 +8,9 @@
 convertir_U = (id, valor) => {
     let met, pul, pie, yar;
 
+    if (valor.includes(",")) {
+        valor = valor.replace(",", ".");
+    }
     if (isNaN(valor)) {
         alert("El valor ingresado es incorrecto");
         met = "";
@@ -36,10 +39,10 @@ convertir_U = (id, valor) => {
         met = valor * 0.3048;
         yar = valor * 0.333333;
     }
-    document.Unidades.unid_pulgada.value = pul;
-    document.Unidades.unid_pie.value = pie;
-    document.Unidades.unid_yarda.value = yar;
-    document.Unidades.unid_metro.value = met;
+    document.Unidades.unid_pulgada.value = Math.round(pul*100)/100;
+    document.Unidades.unid_pie.value = Math.round(pie*100)/100;
+    document.Unidades.unid_yarda.value = Number(pie).toFixed(2);
+    document.Unidades.unid_metro.value = Number(yar).toFixed(2);
 }
 
 /**
@@ -111,7 +114,7 @@ let sumar = () => {
  */
 
 
-let restar = ()=>{
+let restar = () => {
     let re, s1, s2;
     s1 = Number(document.operacionesMat.res_num1.value);
     s2 = Number(document.operacionesMat.res_num2.value);
@@ -134,7 +137,7 @@ let restar = ()=>{
  */
 
 
-let multiplicar = ()=>{
+let multiplicar = () => {
     let re, s1, s2;
     s1 = Number(document.operacionesMat.mul_num1.value);
     s2 = Number(document.operacionesMat.mul_num2.value);
@@ -157,7 +160,7 @@ let multiplicar = ()=>{
  */
 
 
-let dividir = ()=>{
+let dividir = () => {
     let re, s1, s2;
     s1 = Number(document.operacionesMat.div_num1.value);
     s2 = Number(document.operacionesMat.div_num2.value);
