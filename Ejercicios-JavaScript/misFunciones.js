@@ -104,6 +104,7 @@ let sumar = () => {
         s2 = "";
     }
     re = s1 + s2;
+    document.getElementById("totalS").innerHTML= re;
     document.operacionesMat.sum_total.value = re;
 }
 
@@ -127,6 +128,7 @@ let restar = () => {
         s2 = "";
     }
     re = s1 - s2;
+    document.getElementById("totalR").innerHTML= re;
     document.operacionesMat.res_total.value = re;
 }
 
@@ -150,6 +152,7 @@ let multiplicar = () => {
         s2 = "";
     }
     re = s1 * s2;
+    document.getElementById("totalM").innerHTML= re;
     document.operacionesMat.mul_total.value = re;
 }
 
@@ -161,7 +164,7 @@ let multiplicar = () => {
 
 
 let dividir = () => {
-    let re, s1, s2;
+    let re,s1, s2;
     s1 = Number(document.operacionesMat.div_num1.value);
     s2 = Number(document.operacionesMat.div_num2.value);
     if (isNaN(s1)) {
@@ -172,7 +175,8 @@ let dividir = () => {
         alert("El valor ingresado es incorrecto");
         s2 = "";
     }
-    re = s1 / s2;
+    re = s1/s2;
+    document.getElementById("totalD").innerHTML= re;
     document.operacionesMat.div_total.value = re;
 }
 
@@ -181,6 +185,10 @@ let verLetra = (id, value) => {
         document.getElementById(id).value = "";
     }
 }
+/**
+ * genera URL para ir a la segunda web
+ * @method generarUrl
+ */
 
 let generarUrl = () => {
     const dist = document.getElementById("distancia").value;
@@ -190,33 +198,33 @@ let generarUrl = () => {
     window.open(urlCompl);
 }
 
-let cargarvalor = () => {
+/**
+ * carga el valor de la distancia y la unidad
+ * @method cargarValor
+ */
+
+let cargarValor = () => {
     let urlCompleta = window.location.href;
     console.log(urlCompleta);
-
     urlCompleta = urlCompleta.split("#");
 
     const distancia = urlCompleta[1];
     const unidad = urlCompleta[2];
-
     document.getElementById("dist").value = `${distancia} ${unidad}`;
 }
-
 
 let guardarLS = () => {
     const dist = document.getElementById("distancia").value;
     const uni = document.getElementsByName("unidades")[0].value;
 
+    window.open("web2.html");
     localStorage.setItem("distanciaLS", dist);
     localStorage.setItem("unidadLS", uni);
-
-    window.open(web2.html);
 }
 
-let cargarLS = () => {
-    const dist =  localStorage.getItem("distanciaLS");
-    const uni =  localStorage.getItem("unidadLS");
-    console.log(distancia);
-    console.log(unidad);
-    document.getElementById("dist").value=`${distancia} ${unidad}`;
+let cargarLS = () =>{
+    const distancia = localStorage.getItem("distanciaLS");
+    const unidad = localStorage.getItem("unidadLS");
+    document.getElementById("dist").value = `${distancia} ${unidad}`;
 }
+
