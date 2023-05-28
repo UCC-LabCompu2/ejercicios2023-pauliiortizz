@@ -104,7 +104,7 @@ let sumar = () => {
         s2 = "";
     }
     re = s1 + s2;
-    document.getElementById("totalS").innerHTML= re;
+    document.getElementById("totalS").innerHTML = re;
     document.operacionesMat.sum_total.value = re;
 }
 
@@ -128,7 +128,7 @@ let restar = () => {
         s2 = "";
     }
     re = s1 - s2;
-    document.getElementById("totalR").innerHTML= re;
+    document.getElementById("totalR").innerHTML = re;
     document.operacionesMat.res_total.value = re;
 }
 
@@ -152,7 +152,7 @@ let multiplicar = () => {
         s2 = "";
     }
     re = s1 * s2;
-    document.getElementById("totalM").innerHTML= re;
+    document.getElementById("totalM").innerHTML = re;
     document.operacionesMat.mul_total.value = re;
 }
 
@@ -164,7 +164,7 @@ let multiplicar = () => {
 
 
 let dividir = () => {
-    let re,s1, s2;
+    let re, s1, s2;
     s1 = Number(document.operacionesMat.div_num1.value);
     s2 = Number(document.operacionesMat.div_num2.value);
     if (isNaN(s1)) {
@@ -175,8 +175,8 @@ let dividir = () => {
         alert("El valor ingresado es incorrecto");
         s2 = "";
     }
-    re = s1/s2;
-    document.getElementById("totalD").innerHTML= re;
+    re = s1 / s2;
+    document.getElementById("totalD").innerHTML = re;
     document.operacionesMat.div_total.value = re;
 }
 
@@ -222,9 +222,52 @@ let guardarLS = () => {
     localStorage.setItem("unidadLS", uni);
 }
 
-let cargarLS = () =>{
+let cargarLS = () => {
     const distancia = localStorage.getItem("distanciaLS");
     const unidad = localStorage.getItem("unidadLS");
     document.getElementById("dist").value = `${distancia} ${unidad}`;
+}
+
+let dibujarCirCuad = () => {
+    let canvas = document.getElementById("myCanvas");
+    let contexto = canvas.getContext("2d");
+    let xMax = canvas.width;
+    let yMax = canvas.height;
+    let margen = 5;
+
+    contexto.fillStyle = "#333899";
+    contexto.fillRect(0 + margen, yMax - 40 - margen, 40, 40);
+
+    contexto.arc(xMax / 2, yMax / 2, 20, 0, 2 * Math.PI);
+    contexto.stroke();
+    contexto.fillStyle = "#890478";
+    contexto.fill();
+}
+let bandera;
+let dibujar = (event) => {
+    let canvas = document.getElementById("canvasAdibujar");
+    let ctx = canvas.getContext("2d");
+
+    let posX = event.clientX;
+    let posY = event.clientY;
+    console.log(posX, posY);
+
+    canvas.onmousedown = function () {
+        bandera = true
+    };
+    canvas.onmouseup = function () {
+        bandera = false
+    };
+    if (bandera) {
+        ctx.fillRect(posX, posY, 5, 5);
+        ctx.fill;
+    }
+}
+
+let limpiarcanvas = () =>{
+    let canvas = document.getElementById("canvasAdibujar");
+    let ctx = canvas.getContext("2d");
+
+    canvas.width = canvas.width;
 }
 
