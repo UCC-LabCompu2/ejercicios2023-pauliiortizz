@@ -288,9 +288,9 @@ let dibujarCuadriculado = () => {
         ctx.lineTo(i, alturaMax);
         ctx.strokeStyle = "rgba(0,0,0,0.47)";
         ctx.stroke();
-        ctx.font ="10px Arial";
+        ctx.font = "10px Arial";
         ctx.fillStyle = "#333";
-        ctx.fillText(ejeX, i, alturaMax/2);
+        ctx.fillText(ejeX, i, alturaMax / 2);
         ctx.closePath();
         ejeX++;
     }
@@ -302,9 +302,9 @@ let dibujarCuadriculado = () => {
         ctx.lineTo(anchoMax, i);
         ctx.strokeStyle = "rgba(0,0,0,0.47)";
         ctx.stroke();
-        ctx.font ="10px Arial";
+        ctx.font = "10px Arial";
         ctx.fillStyle = "#333";
-        ctx.fillText(ejeY, anchoMax/2, i);
+        ctx.fillText(ejeY, anchoMax / 2, i);
         ctx.closePath();
         ejeY++;
     }
@@ -356,6 +356,27 @@ let cerrarDialog = () => {
     const dialog = document.getElementById("myDialog");
     dialog.close();
 }
+
+var x = 0;
+var dx = 2;
+let animarAuto = () => {
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+
+    let img = new Image();
+    img.src = "images/auto.png";
+
+    img.onload = function () {
+        canvas.width = canvas.width;
+        ctx.drawImage(img, x, 100);
+    }
+    x += dx;
+    console.log("La coordenada X es: " + x);
+    if (x > canvas.width) { //reseteando la variable, no toma valores tan grandes
+        x = 0;
+    }
+}
+
 
 
 
